@@ -19,23 +19,30 @@
         ctx.fillStyle = 'blue';
         ctx.lineWidth = 3;
         ctx.beginPath();
-        ctx.moveTo(50,100);
-        ctx.lineTo(350,100);
+        ctx.moveTo(50,centro.y);
+        ctx.lineTo(350,centro.y);
         ctx.stroke();
 
         ctx.fillStyle = 'red';
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 3;
         ctx.beginPath();
-        ctx.moveTo(50,200);
-        ctx.lineTo(350,200);
+        ctx.moveTo(centro.x,50);
+        ctx.lineTo(centro.x,250);
         ctx.stroke();
 
-        ctx.fillStyle = 'gray';
-        ctx.setLineDash([5,5]);
+        ctx.fillStyle = 'green';
         ctx.beginPath();
-        ctx.moveTo(100,100);
-        ctx.lineTo(100,200);
-        ctx.stroke();
+        ctx.arc(centro.x, centro.y ,5,0,2*Math.PI);
+        ctx.fill();
+
+        ctx.strokeStyle = 'green';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(centro.x -10, centro.y - 10,20,20);
+
+        ctx.fillStyle = 'black';
+        ctx.font = '12px Arial';
+        ctx.fillText('90°', centro.x + 15, centro.y - 15);
+
 
     </script>
 

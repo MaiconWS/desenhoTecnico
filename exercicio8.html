@@ -14,15 +14,39 @@
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
 
-        ctx.fillStyle = 'red';
+        const A = {x:100, y:100};
+        const B = {x:300, y:200};
+
+        const meio = {
+            x:(A.x + B.x)/2,
+            y:(A.y + B.y)/2
+        }
+
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 3;
         ctx.beginPath();
-        ctx.arc(100,100,5,0,2*Math.PI);
-        ctx.fill();
+        ctx.moveTo(A.x, A.y);
+        ctx.lineTo(B.x, B.y);
+        ctx.stroke();
 
         ctx.fillStyle = 'blue';
         ctx.beginPath();
-        ctx.arc(250,150,5,0,2*Math.PI);
+        ctx.arc(A.x, A.y ,5,0,2*Math.PI);
         ctx.fill();
+        ctx.beginPath();
+        ctx.arc(B.x, B.y ,5,0,2*Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = 'red';
+        ctx.beginPath();
+        ctx.arc(meio.x, meio.y ,6,0,2*Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = 'black';
+        ctx.font = '12px Arial';
+        ctx.fillText('A', A.x - 15, A.y - 10);
+        ctx.fillText('B', B.x + 10, B.y + 20);
+        ctx.fillText('M(meio)', meio.x + 10, meio.y - 10);
 
 
     </script>
