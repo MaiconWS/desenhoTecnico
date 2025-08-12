@@ -6,7 +6,7 @@
     <title>Um Ponto</title>
 </head>
 <body>
-    <h2>Desenhando um ponto</h2>
+    <h2>Desenhando dois ponto</h2>
     <canvas id="canvas" width="400" height=" 300" style="border: 1px solid black;"></canvas>
 
     <script>
@@ -14,11 +14,33 @@
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
 
-        ctx.fillStyle = 'red';
+        const centro = {x:200, y:150};
+        const raio = 80;
 
+        ctx.strokeStyle = 'blue';
+        ctx.lineWidth = 3;
         ctx.beginPath();
-        ctx.arc(100,100,5,0,2*Math.PI);
+        ctx.arc(centro.x, centro.y ,raio,0,2*Math.PI);
+        ctx.stroke();
+
+        ctx.fillStyle = 'red';
+        ctx.beginPath();
+        ctx.arc(centro.x, centro.y ,4,0,2*Math.PI);
         ctx.fill();
+
+        ctx.fillStyle = 'red';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(centro.x, centro.y);
+        ctx.lineTo(centro.x + raio, centro.y);
+        ctx.stroke();
+
+        ctx.fillStyle = 'black';
+        ctx.font = '14px Arial';
+        ctx.fillText('Centro', centro.x + 10, centro.y - 10);
+        ctx.fillText(`Raio = ${raio}px`, centro.x + 20, centro.y + 10);
+
+
     </script>
 
 </body>
