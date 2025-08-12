@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Um Ponto</title>
+</head>
+<body>
+    <h2>Desenhando um ponto</h2>
+    <canvas id="canvas" width="400" height=" 300" style="border: 1px solid black;"></canvas>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        const pontoA ={x:100, y:100};
+        const pontoB ={x:300, y:150};
+
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(pontoA.x, pontoA.y);
+        ctx.lineTo(pontoB.x, pontoB.y);
+        ctx.stroke();
+
+        ctx.fillStyle = 'red';
+        ctx.beginPath();
+        ctx.arc(pontoA.x, pontoA.y*Math.PI);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(pontoB.x, pontoB.y*Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = 'black';
+        ctx.font = '16px Arial';
+        ctx.fillText('A', pontoA.x - 15, pontoA.y -10);
+        ctx.fillText('A', pontoB.x - 15, pontoB.y -10);
+
+    </script>
+</body>
+</html>

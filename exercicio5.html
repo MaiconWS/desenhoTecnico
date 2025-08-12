@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Um Ponto</title>
+</head>
+<body>
+    <h2>Desenhando um ponto</h2>
+    <canvas id="canvas" width="400" height=" 300" style="border: 1px solid black;"></canvas>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        const A ={x:50, y:100};
+        const B ={x:200, y:120};
+
+        const C ={x:100, y:200};
+        const D ={x:350, y:180};
+
+        ctx.strokeStyle = 'blue';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(A.x, A.y);
+        ctx.lineTo(B.x, B.y);
+        ctx.stroke();
+
+        ctx.strokeStyle = 'green';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(C.x, C.y);
+        ctx.lineTo(D.x, D.y);
+        ctx.stroke();
+
+        ctx.fillStyle = 'red';
+        [A,B,C,D].forEach(ponto =>{
+            ctx.beginPath();
+            ctx.arc(ponto.x, ponto.y,4,0,2*Math.PI);
+            ctx.fill();
+        })
+
+        ctx.fillStyle = 'black';
+        ctx.font = '14px Arial';
+        ctx.fillText('A',A.x - 15, A.y -10);
+        ctx.fillText('B',B.x + 10, B.y -10);
+        ctx.fillText('C',C.x - 15, C.y + 20);
+        ctx.fillText('D',D.x + 10, D.y + 10);
+
+
+
+    </script>
+</body>
+</html>

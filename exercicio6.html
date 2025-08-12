@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Um Ponto</title>
+</head>
+<body>
+    <h2>Desenhando dois ponto</h2>
+    <canvas id="canvas" width="400" height=" 300" style="border: 1px solid black;"></canvas>
+
+    <script>
+
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        ctx.fillStyle = 'blue';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(50,100);
+        ctx.lineTo(350,100);
+        ctx.stroke();
+
+        ctx.fillStyle = 'red';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(50,200);
+        ctx.lineTo(350,200);
+        ctx.stroke();
+
+        ctx.fillStyle = 'gray';
+        ctx.setLineDash([5,5]);
+        ctx.beginPath();
+        ctx.moveTo(100,100);
+        ctx.lineTo(100,200);
+        ctx.stroke();
+
+    </script>
+
+</body>
+</html>
